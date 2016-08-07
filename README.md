@@ -42,6 +42,8 @@
 	- scan和reduce无法在并发环境下使用
 	- 懒加载：即只有subscription才会被触发并且可被重复使用；
 	- Single：Observable of One；Completable：Observable of None;
+	- 利用cache方法，可以将create的数据缓存起来
+	- ConnectableObservable
 	- 创建
 		1. JUST(VALUE)
 			- 创建用于emits指定data的Observable,完成后立即结束；
@@ -80,10 +82,24 @@
 		6. ERROR
 			- emits 错误异常消息
 		7. CREATE
+			- 不能使用多线程
+	- timer和interval
+		1. timer：延迟执行,类似于Thread.sleep
+		2. interval：每隔某一时间执行一次
+	- cold和hot Observable
+		1.	cold Observable：只有当Observable被订阅时，才创建，JUST、FROM和RANGE为cold Observable；
+		2. 
 4. Operators
 	- 大多数的操作都为同步的
 5. Subscriber
 	- 同时实现了Observer和Subscription的功能
+6. Subject
+	- 继承Observable并实现Observer
+	1.	AsyncSubject
+		当onComplete（）执行时，emits最后一条记录
+	2. BehaviorSubject
+	3. ReplaySubject
+4. 
 
 
 
