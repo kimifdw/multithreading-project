@@ -9,6 +9,10 @@
 
 // Apply the groovy plugin to add support for Groovy
 apply plugin: 'groovy'
+apply plugin: 'idea'
+
+sourceCompatibility=1.8
+targetCompatibility=1.8
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -20,7 +24,7 @@ repositories {
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // We use the latest groovy 2.x version for building this library
-    compile 'org.codehaus.groovy:groovy-all:2.4.7'
+    compile 'org.codehaus.groovy:groovy:2.4.7'
     compile 'io.reactivex:rxjava:1.1.6'
     // We use the awesome Spock testing and specification framework
     testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
