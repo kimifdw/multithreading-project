@@ -99,7 +99,31 @@
 		当onComplete（）执行时，emits最后一条记录
 	2. BehaviorSubject
 	3. ReplaySubject
-4. 
+> core operators
+1. mapping 和 filtering
 
+> Schedulers
+
+1. Schedulers.newThread()
+2. Schedulers.io()
+	- 线程可被回收利用，线程池无限制
+	- 类似于ThreadPoolExecutor实现
+	- 适用于network请求和disk请求
+3. Schedulers.computation()
+	- 受到当时cpu运行环境的线程数限制【Runtime.getRuntime()】
+4. Schedulers.from(Executor executor)
+5. Schedulers.immediate()
+	- 非异步执行
+	- 实际开发中避免使用
+6. Schedulers.trampoline()
+	- 与Schedulers.immediate()类似，在当前线程中执行
+	- 会等待当前的task执行完，再执行下一个task
+7. Schedulers.test()
+8. observeOn() && subscribeOn()
+	- 在observeOn()之上的代码，在当前线程中运行；在observeOn()之下的代码在Scheduler中执行
+- 总结：
+	1. Observable不使用Scheduler，类似于单线程
+	2. Observable使用单个subscribeOn，类似于使用后台线程
+	3. Observable使用flatMap() ,为内部的每个Observable创建一个线程
 
 
